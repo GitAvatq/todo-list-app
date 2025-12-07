@@ -44,7 +44,7 @@ Backend:
 
 🚀 Установка и запуск
 1. Клонировать репозиторий
-git clone https://github.com/username/todo-app.git
+git clone https://github.com/GitAvatq/todo-list-app.git
 cd todo-app
 
 2. Установить зависимости
