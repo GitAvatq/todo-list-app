@@ -1,9 +1,9 @@
-
 export default function HostingHTTPS(){
-  // работает просто имба да работает
-  // setInterval(()=>{
-  //     console.log(window.location.pathname)
-  // },1000)
+// просто код с логикой на всякий случий удалять можно 
+//   // работает просто имба да работает
+//   setInterval(()=>{
+//       console.log(window.location.pathname)
+//   },1000)
 
 //   setInterval(()=>{
 //     const hosting=window.location.pathname
@@ -11,16 +11,6 @@ export default function HostingHTTPS(){
 //       console.log("Hoem")
 //     }else{
 //       console.log("Hosting:",window.location.pathname)
-// }
-// },1000)
-
-
-//     setInterval(()=>{
-//     const hosting=window.location.pathname
-//     if(hosting==="/"){
-//       <p>Home</p>
-//     }else{
-//       <p>Hosting:{window.location.pathname}</p>
 // }
 // },1000)
 

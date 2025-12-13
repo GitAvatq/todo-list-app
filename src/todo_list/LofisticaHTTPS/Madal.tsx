@@ -20,6 +20,7 @@ export const  Modal:React.FC<ModalProps>=({onClose})=>{
       <div className="modal-content" onClick={handleContentClick}>
         <h2>+New Task</h2>
         <h5>Название новой папки</h5>
+        <p>Пользователь прошу не ведите home названеи у вас получитса простой папка без ничего</p>
         <input placeholder='Название' value={inputText}
         type='text' onChange={(e)=>setInputText(e.target.value)}/>
         <button onClick={()=>{addNewtext(inputText);setInputText("");}}
