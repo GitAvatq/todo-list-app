@@ -3,6 +3,7 @@ import { useParams, useLocation } from 'react-router-dom';
 import { useCreatNewTasck } from '../zustand';
 import MainTodoList from '../main_todoList';
 import { useEffect } from 'react';
+import "../LofisticaHTTPS/zadacha.css"
 
 function Zadanie() {
     const { slug } = useParams();
@@ -50,12 +51,14 @@ function Zadanie() {
     if (!name) return <div>Задача не найдена</div>;
     return (
         <div>
+            <nav>
             <h1>Задача:{https}</h1>
-            <p>Slug: {slug}</p>
+            <p >Slug: {slug}</p>
+            </nav>
             <nav>
                 <MainTodoList folderSlug={slug} />
             </nav>
-            <button onClick={handleDeleyt}>Удалить</button>
+            <button className='DelaytBtn' onClick={handleDeleyt}>Удалить</button>
         </div>
     );
 }

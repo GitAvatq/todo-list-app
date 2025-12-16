@@ -53,12 +53,14 @@ interface NewTasck{
     id:number;
     name:string;
     slug?:string;
+    img?:boolean
 }
 interface TasckNewText{
     masNew:NewTasck[];
     addNewNameText:(name:string)=>void;
     removeNewString:(id:number)=>void;
-    loadingNewNameText:()=>void
+    loadingNewNameText:()=>void;
+    provImgPeople:(img:boolean)=>void
 }
 
 const createSlug=(name:string):string=>{
@@ -100,4 +102,10 @@ export const useCreatNewTasck=create<TasckNewText>((set)=>({
             return { masNew: [] };
         }
     }),
+    provImgPeople:(img:boolean)=>set((state)=>{
+        const provImg=state.masNew.filter((ind)=>
+        ind.img===img ? true :false)
+        localStorage.setItem("masNew",JSON.stringify(provImg));
+        return {masNew:provImg}
+    })
 }))
