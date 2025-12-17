@@ -1,15 +1,14 @@
-import LogoPeople from "../Profil/foto"
 import { Link } from "react-router-dom";
 import "../Dropdown/meny.css"
+import LogoPeople from "../profile/foto";
 
-export default function MenuBerger(){
-    return(
-        <>
+export default function MenuBurger() {
+    return (
         <div className="meny_click">
             <div>
-            <LogoPeople/>
-            <p className="text_namePeople">namePeopel</p>
-            <p className="line_Gradinient"></p>
+                <LogoPeople />
+                <p className="text_namePeople">namePeopel</p>
+                <p className="line_Gradinient"></p>
             </div>
             <div className="butDown">
                 <p className="buttonDown"><Link className="button_text" to="/">Hoem</Link></p>
@@ -19,6 +18,5 @@ export default function MenuBerger(){
             </div>
             <button className="closeBut">Закрыть меню</button>
         </div>
-        </>
     )
 }

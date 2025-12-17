@@ -7,18 +7,15 @@ import './App.css';
 function App() {
 
   return (
-    <>
     <BrowserRouter>
-    <BurgerMenu/>
+      <BurgerMenu />
       <div>
-        <HostingHTTPS/>
-        <h1>Начинаем верстку</h1>
-            <ErrorBoundary>
+        <HostingHTTPS />
+        <ErrorBoundary>
           <LogicaHousting />
         </ErrorBoundary>
       </div>
-      </BrowserRouter>
-    </>
+    </BrowserRouter>
   );
 }
 
