@@ -1,0 +1,128 @@
+.inputAddMain{
+    width:200px;
+    height:40px;
+    border:1px solid #1A5D00;
+    border-radius: 8px;
+    padding-left:5px;
+    transition: ease 0.3s;
+}
+.inputAddMain:hover{
+    box-shadow:5px 5px 0cap black;
+}
+.BtnAddinput{
+    text-align: center;
+    width:120px;
+    height:44px;
+    background-color:#1B9E49;
+    color: #FFF;
+    border:1px solid black;
+    border-radius:6px;
+    margin-left:10px;
+    transition: ease 0.3s;
+    &:hover{
+        color:black;
+        box-shadow: 5px 5px 0cap black;
+    }
+}
+.ulTextMainBoxs{
+    list-style:none;
+    padding:0;
+    margin:10px 0px 0px ;
+}
+.boxsTextMainList{
+    border:2px solid black;
+    border-radius:6px;
+    text-align: center;
+    width:80%;
+    justify-content: space-between;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+.listTextMain{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.todo_Textfalse{
+    margin-left:100px;
+}
+.todo_Texttrue{
+    margin-left:100px
+}
+.redactorInp{
+    width:360px;
+    height:44px;
+    border: none;
+}
+.activText{
+    color: #1A5D00;
+    position: absolute;
+    margin-top: 40px;
+    margin-left: 5px;
+}
+.noActivText{
+    color:black;
+    position: absolute;
+    margin-top: 40px;
+    margin-left: 5px;
+}
+.saveBtn{
+    width: 120px;
+    height: 45px;
+    background-color: #1A5D00;
+    color: white;
+    border: 2px solid white;
+    transition:0.3s ease;
+    border-radius:6px;
+    &:hover{
+        color: #1A5D00;
+        background-color: white;
+        border-radius:5px;
+        border:2px solid black;
+    }
+}
+.DelaytBtn{
+    width: 120px;
+    height: 45px;
+    background-color: #671205;
+    color: white;
+    border: 2px solid white;
+    transition:0.3s ease;
+    border-radius:6px;
+    &:hover{
+        color: #671205;
+        background-color: white;
+        border-radius:5px;
+        border:2px solid black;
+    }
+}
+.zdelanBtn{
+    width: 120px;
+    height: 45px;
+    background-color: #0C2400;
+    color: white;
+    border: 2px solid white;
+    transition:0.3s ease;
+    border-radius:6px;
+    &:hover{
+        color: #1A5D00;
+        background-color: white;
+        border-radius:5px;
+        border:2px solid black;
+    }
+}
+.redactorBtn{
+    width: 120px;
+    height: 45px;
+    background-color: #FFD500;
+    color: white;
+    border: 2px solid white;
+    transition:0.3s ease;
+    border-radius:6px;
+    &:hover{
+        color: #FFD500;
+        background-color: white;
+        border-radius:5px;
+        border:2px solid black;
+    }
+}

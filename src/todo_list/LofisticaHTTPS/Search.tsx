@@ -1,21 +1,36 @@
-import { useCreatTodoList } from "./zustand"
-import { useState , useEffect} from "react"
-import Searcht from "./LofisticaHTTPS/Search"
-import "../todo_list/LofisticaHTTPS/MainTodoList.css"
-import { useCreatNewTasck } from "./zustand"
+import { useState,useMemo} from "react";
+import { useCreatTodoList } from "../zustand";
+import "../LofisticaHTTPS/search.css"
 
-type Props = {
-    folderSlug?: string
+type Todo={
+    id:number;
+    text:string
+    done:boolean
 }
-
-export default function MainTodoList({ folderSlug }: Props){
+export default function Searcht(){
     const todos=useCreatTodoList((state)=>state.todos)
-    const addTodoText=useCreatTodoList((state)=>state.addTodoText)
+
+    const [search,setSearch]=useState<string>("")
+    const [filteredTodos, setFilteredTodos] = useState<Todo[]>(todos);
+
+        // Поисковик фильратций не удалять что то в нем рабоает но я не знаю что имено
+    const SearchInput=useMemo(()=>{
+        if(!search.trim()){
+            setFilteredTodos([]);
+            return
+        }
+        const resaut=todos.filter((ind)=>
+        ind.text.toLowerCase().includes(search.toLowerCase().trim()))
+        setFilteredTodos(resaut)
+    },[todos,search])
+    //Нужно до рабоать 
+        // const resaut=todos.filter(todo=>
+        // todo.text.toLowerCase().includes(search.toLowerCase().trim()));
+
     const removeTodoText=useCreatTodoList((state)=>state.removeTodoText)
-    const locationStora=useCreatTodoList((state)=>state.locationStor)
     const redactor=useCreatTodoList((state)=>state.redactorText)
     const provActivZadach=useCreatTodoList((state)=>state.provActivZadTodo)
-    const [inputText,setInputText]=useState("")
+
     const [editingId,setEditingId]=useState<number | null>(null);
     const [redactInputText,setRedactInputText]=useState<string>("")
 
@@ -29,23 +44,17 @@ export default function MainTodoList({ folderSlug }: Props){
       setEditingId(null);
     }
   };
-    useEffect(()=>{
-        locationStora()
-    },[])
 
-    const visibleTodos = folderSlug ? todos.filter(t => t.folder === folderSlug) : todos.filter(t => !t.folder)
-    const todosText=useCreatNewTasck((e)=>e.masNew)
-    const nameTodos=todosText.filter((e)=>e.name)
     return(
-        <>        
-        <div>
-            <Searcht/>
-        <input className="inputAddMain" placeholder="Создать задачу" type="text" value={inputText}
-        onChange={e=>setInputText(e.target.value)}/>
-        <button className="BtnAddinput" onClick={()=>{addTodoText(inputText, folderSlug); setInputText('')}}
-        disabled={!inputText.trim()}>Добавить</button>
-        <ul className="ulTextMainBoxs">{visibleTodos.map((ind)=>(
-            <div key={ind.id} className="boxsTextMainList"> 
+        <>
+             <div>
+                <input className="SearchAddMainInp" placeholder="Поиск" value={search} 
+                onChange={(e)=>setSearch(e.target.value)}/>
+                {/* {resaut.length>0 ? <p>Поиск...</p> : <p>Текст ненайден</p>} */}
+
+                {filteredTodos.length>0 ? (
+                    <ul className="ulTextMainBoxs">{filteredTodos.map((ind)=>(
+                          <div key={ind.id} className="boxsTextMainList"> 
             <li key={ind.id} className="listTextMain">
                 {editingId===ind.id ? (
                     <input className="redactorInp" value={redactInputText} 
@@ -53,12 +62,7 @@ export default function MainTodoList({ folderSlug }: Props){
                     placeholder="Редактировать"/>
                 )  : (
                     <>
-                    <span className={"todo_Text"+`${ind.done}`}>
-                        {
-                        visibleTodos.some(t => t.text === ind.text && t.id !== ind.id) 
-                        ? <p style={{ color: 'red' }}>Имя повторяется ({ind.text})</p> 
-                        : <p>{ind.text}</p>
-                        }</span>
+                    <span className={"todo_Text"+`${ind.done}`}>{ind.text}</span>
                     {ind.done===false ? <p className="noActivText">Не зделан</p> 
                     : <p className="activText">Зделан</p>}
                     </>
@@ -74,9 +78,9 @@ export default function MainTodoList({ folderSlug }: Props){
                 </div>
             </li>
             </div>
-        ))}</ul>
-    </div>
-
+                    ))}</ul>
+                ):(<p>Пусто...</p>)}
+            </div>
         </>
     )
 }

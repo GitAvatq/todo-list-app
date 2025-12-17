@@ -1,0 +1,9 @@
+.burger_text{
+    color:white;
+    text-decoration:dotted;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.burger_text:hover{
+    color: green;
+    text-decoration:underline;
+}

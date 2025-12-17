@@ -1,14 +1,23 @@
-import MainTodoList from './tudu_list/main_todoList';
-
+import ErrorBoundary from './Error';
+import { LogicaHousting } from './todo_list/LofisticaHTTPS/logistica';
+import HostingHTTPS from './todo_list/LofisticaHTTPS/hosting';
+import BurgerMenu from './todo_list/BurgerMenu/BergerMenu';
+import { BrowserRouter } from 'react-router-dom';
 import './App.css';
-
 function App() {
+
   return (
     <>
+    <BrowserRouter>
+    <BurgerMenu/>
       <div>
+        <HostingHTTPS/>
         <h1>Начинаем верстку</h1>
-        <MainTodoList />
+            <ErrorBoundary>
+          <LogicaHousting />
+        </ErrorBoundary>
       </div>
+      </BrowserRouter>
     </>
   );
 }
